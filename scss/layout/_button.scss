@@ -1,0 +1,46 @@
+
+// button
+.btn{
+    @extend .d-inblock;
+    font-size: 15px;
+    min-width: 150px;
+    line-height: 40px;
+    text-align: center;
+    transition: all .3s ease-in-out;
+    &:hover{
+      @extend .text-dark;
+      background: $yellow;
+      border-color: $yellow;
+    }
+    &-white{
+      background: $white;
+      @extend .font-font2;
+    }
+    &-blue{
+      background: $llblue;
+      @extend .text-white;
+    }
+    &-tool{
+      @extend .font-main, .text-dwhite, .d-flex, .align-items-center;//.font-condensed, 
+      background: $dgray;
+      font-size: 16px;
+      line-height: 26px;
+      letter-spacing: 0.8px;
+      max-width: 307px;
+      padding: 5px 14px;
+      border-radius: 40px;
+      img{
+          padding-right: 19px;
+      }
+    }
+    &-null{
+      @extend .text-ddgray;
+		  border: 1px solid $ddgray;
+    }
+    &-contact{
+      border-radius: 2px;
+      border: 0;
+      font-size: 13px;
+      @extend .bold;
+    }
+  }

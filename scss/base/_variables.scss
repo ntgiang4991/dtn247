@@ -1,0 +1,47 @@
+//@import './fonts';
+// Variables - creat grid
+$mobile: 576px;//sm
+$tablet: 768px;//md
+$ipad: 992px;//lg
+$small-desktop: 1252px;//xl
+//$larger-desktop: 1601px;
+$gutter: 12px;
+$col-number: 12;
+
+// Main font
+$mf-style: normal;//normal - italic - oblique
+$mf-weight: 400;
+.s13{font-size: 13px;}
+.s14{font-size: 14px;}
+// .s15{font-size: 15px}
+// .s24{font-size: 24px;}
+// .s39{font-size: 39.5px}
+// .s43{font-size: 43.5px}
+// .s45{font-size: 45.5px}
+// .s89{font-size: 89.5px}
+// .s100{font-size: 100.5px;}
+$main-font: 'Roboto Condensed', sans-serif;
+$font1: 'Roboto', sans-serif;
+$font2: 'Oswald', sans-serif;
+$font3: 'Open Sans', sans-serif;
+
+// Main color
+$llblue: #2f9dea;// 9
+$ldark: #151515;
+$blue: #339fea;// 3
+$ddgray: #555;
+$white: #fff;// 5
+$dwhite: #e6eaee;// 7
+$dark: #0f0f0f;// 1
+$dgray: #363636;//
+$gray: #282828;//6
+$lgray: #b7b7b7;// 2
+$llgray: #9b9b9b;// 8
+$yellow: #f29f14;// 4
+$lllgray: #f9f9f9;//11
+$llllgray: #e1e1e1;//10
+$dddgray: #999;
+$ddddgray: #262626;
+$mgray: #898989;
+$mdark: #333;
+

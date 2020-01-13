@@ -1,0 +1,184 @@
+
+//color
+@mixin text-color($args...){
+  @debug keywords($args);
+  @each $name, $color in keywords($args) {
+      .text-#{$name}{
+          color: $color;
+      }
+  }
+}
+@include text-color(
+  $blue: #339fea,// 3
+  $dark: #0f0f0f,// 1
+  $lgray: #b7b7b7,// 2
+  $yellow: #f29f14, // 4
+  $gray: #282828,
+  $dgray: #363636,
+  $dwhite: #e6eaee,
+  $llgray: #9b9b9b,
+  $llblue: #2f9dea,
+  $llllgray: #e1e1e1,
+  $ddgray: #555,
+  $white: #fff,// 5
+  $ldark: #151515,
+  $dddgray: #999,
+  $ddddgray: #262626,
+  $mgray: #898989,
+  $mdark: #333
+);
+
+
+// @mixin font-family($args...){
+//   @debug keywords($args);
+//   @each $name, $family in keywords($args) {
+//       .font-#{$name}{
+//           font-family: $family;
+//       }
+//   }
+// }
+// @include font-family(
+//   $roboto: 'Roboto', sans-serif,
+//   $condensed: 'Roboto Condensed', sans-serif,
+//   $oswald: 'Oswald', sans-serif
+// );
+@mixin font-family($args...){
+    @debug keywords($args);
+    @each $name, $family in keywords($args) {
+        .font-#{$name}{
+            font-family: $family;
+        }
+    }
+  }
+@include font-family(
+  $main: $main-font,
+  $font1: $font1,
+  $font2: $font2,
+  $font3: $font3
+);
+//border
+@mixin border($direction, $width, $style, $color) {
+	border-#{$direction}: $width $style $color;
+}
+
+//vendor prefix
+@mixin vendor-prefix($name, $value) {
+	@each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+	  #{$vendor}#{$name}: #{$value};
+	}
+}
+// position
+@mixin position($name, $top: null, $right: null, $bottom: null, $left: null){
+	position: $name;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+// display 
+.d-block{display: block;}
+.d-inblock{display: inline-block;}
+.d-inline{display: inline;}
+.d-flex{display: flex;}
+
+.align-items-center{align-items: center;}
+.align-items-stretch{align-items: stretch;}
+.align-items-start{align-items: flex-start;}
+.align-items-end{align-items: flex-end;}
+.align-items-baseline{align-items: baseline;}
+
+.justify-content-center{justify-content: center;}
+.justify-content-start{justify-content: flex-start;}
+.justify-content-end{justify-content: flex-end;}
+.justify-content-between{justify-content: space-between;}
+.justify-content-around{justify-content: space-around;}
+
+.align-content-center{align-content: center;}
+.align-content-stretch{align-content: stretch;}
+.align-content-start{align-content: flex-start;}
+.align-content-end{align-content: flex-end;}
+.align-content-between{align-content: space-between;}
+.align-content-around{align-content: space-around;}
+// add font-face
+@mixin font-face($font-name, $url) {
+  @font-face {
+    font-family: $font-name;
+    src: url(#{$url});
+  }
+}
+// font for body
+@mixin main-font ($mf-style, $mf-weight, $mf-size, $mf-family) {
+    font: $mf-style $mf-weight $mf-size $mf-family;
+}
+
+// text-truncate
+@mixin text-truncate($line, $lineHeight) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    line-height: $lineHeight;
+    max-height: $lineHeight * $line;
+}
+
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+    overflow: hidden;
+    position: relative;
+    line-height: $lineHeight;
+    max-height: $lineHeight * $lineCount; 
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+    &:before {
+      content: '...';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 1em;
+      height: 1em;
+      margin-top: 0.2em;
+      background: $bgColor;
+    }
+}
+
+// Tables
+.tbl {
+    width: 100%;
+    th,
+    td {
+      padding: 19px 15px;
+      vertical-align: middle;
+    }
+}
+
+.tbl-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+// White space
+// $x: 1;
+// @while $x < 20 {
+// 	.p-#{$x} {padding: $x * 5px}
+// 	.pt-#{$x} {padding-top: $x * 5px;}
+// 	.pr-#{$x} {padding-right: $x * 5px;}
+// 	.pb-#{$x} {padding-bottom: $x * 5px;}
+// 	.pl-#{$x} {padding-left: $x * 5px;}
+// 	.m-#{$x} {margin: $x * 5px}
+// 	.mt-#{$x} {margin-top: $x * 5px;}
+// 	.mr-#{$x} {margin-right: $x * 5px;}
+// 	.mb-#{$x} {margin-bottom: $x * 5px;}
+// 	.ml-#{$x} {margin-left: $x * 5px;}
+// 	$x:$x+1;
+// }
+
+

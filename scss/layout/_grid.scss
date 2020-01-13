@@ -1,0 +1,35 @@
+
+@import '../base/mixin';
+
+// Maps variables
+$container-width:(width1:$mobile - 36px, width2: $tablet - 48px, width3: $ipad - 52px, width4: $small-desktop - 52px);//, width:$small-desktop
+$breakpoints:(mobile:$mobile, tablet:$tablet,ipad:$ipad,desktop:$small-desktop);//,small-desktop:$small-desktop
+$screen-width:($mobile:sm, $tablet:md,$ipad:lg,$small-desktop:xl);//,$small-desktop:xl
+// Create container width: 100%;
+.container{max-width: 100%;padding-left: $gutter;padding-right: $gutter;margin-left: auto;margin-right: auto;}
+// Responsive container
+@each $key, $breakpoint in $breakpoints {
+    @media screen and (min-width:$breakpoint){
+        @each $key, $width in $container-width {
+            @if ($width - $breakpoint < 0 and $breakpoint - $width > 0 and $breakpoint - $width <= 60 ) {
+                .container {width: $width;}
+            }
+        }
+    }
+}
+// Create row
+.row{display: table-cell;@include vendor-prefix(display, flex);@include vendor-prefix(flex-wrap, wrap);margin-left: -$gutter;margin-right: -$gutter;}
+.no-flexbox .row {
+    display: table-cell;
+}
+[class^='col']{padding-left: $gutter;padding-right: $gutter;width: 100%;box-sizing: border-box;}
+// Create col
+@each $key, $breakpoint in $breakpoints {
+    @media screen and (min-width: $breakpoint) {
+        $screen: map-get($screen-width, $breakpoint);
+        @for $i from 1 through $col-number {
+            .col-#{$screen}-#{$i} {width: $i / $col-number * 100%;}
+            $i: $i + 1;
+        }
+    }
+}

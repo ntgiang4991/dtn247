@@ -1,0 +1,2 @@
+[1/10/2020, 10:33:03 PM] layer "pro5.jpg": Duplicate path: pro5.jpg
+[1/10/2020, 10:33:03 PM] layer "companyname@gmail.com": Unsupported extension: com
